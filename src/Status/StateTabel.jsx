@@ -60,6 +60,10 @@ export default function StateTable() {
   //   console.log(formValidated);
 
   // },[formValidated])
+  useEffect(() => {
+    setFormValidated(form);
+  }, [form])
+
 
   const updating = async (id) => {
     console.log(id);
@@ -96,7 +100,7 @@ export default function StateTable() {
   }
   useEffect(() => {
     setAddingToApi(formForAdding);
-  } ,[formForAdding])
+  }, [formForAdding])
   const add = async () => {
     console.log("hi");
     setAddingToApi(formForAdding);
