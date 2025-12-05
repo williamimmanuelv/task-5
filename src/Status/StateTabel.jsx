@@ -79,7 +79,7 @@ export default function StateTable() {
     }
   };
   const [formForAdding, setFormForAdding] = useState({
-    id: '',
+    // id: '',
     state_name: '',
     status: '',
   })
@@ -141,7 +141,7 @@ export default function StateTable() {
           <Column field="status" header="Status" />
 
           <Column header="Actions" body={forUpdate} />
-          <Column header="Actions" body={forDelete} />
+          {/* <Column header="Actions" body={forDelete} /> */}
 
         </DataTable>
       </div>
@@ -151,10 +151,18 @@ export default function StateTable() {
         {/* <Button label="Show" icon="pi pi-external-link" /> */}
         <Dialog header={"Edit Form"} visible={visible} style={{ width: '50vw' }}
           onHide={() => { if (!visible) return; setVisible(false); }}>
-          <input className="input1" value={form.id} name="id"
-            onChange={formValidate} />
-          <input className="input2" value={form.state_name} name="state_name" onChange={formValidate} />
-          <input className="input3" value={form.status} name="status" onChange={formValidate} />
+          <div className="input-div ">
+            <label> Id </label>
+            <input className="input1 form-control" value={form.id} name="id" onChange={formValidate} />
+          </div>
+          <div className="input-div">
+            <label> State Name </label>
+            <input className="input2" placeholder="Enter " value={form.state_name} name="state_name" onChange={formValidate} />
+          </div>
+          <div className="input-div">
+            <label> Status </label>
+            <input className="input3" value={form.status} name="status" onChange={formValidate} />
+          </div>
           {/* <p className="m-0"> id : {form.id}</p>
               <p className="m-0"> id : {form.state_name}</p>
               <p className="m-0"> id : {form.status}</p> */}
@@ -169,9 +177,21 @@ export default function StateTable() {
         {/* <Button label="Show" icon="pi pi-external-link" /> */}
         <Dialog header={"Add Data"} visible={visibleForAdding} style={{ width: '50vw' }}
           onHide={() => { if (!visibleForAdding) return; setVisibleForAdding(false); }}>
-          <input className="input1" value={formForAdding.id} name="id" onChange={formValidateForAdd} />
-          <input className="input2" value={formForAdding.state_name} name="state_name" onChange={formValidateForAdd} />
-          <input className="input3" value={formForAdding.status} name="status" onChange={formValidateForAdd} />
+          {/* <input className="input1" placeholder="Enter id" value={formForAdding.id} name="id" onChange={formValidateForAdd} /> */}
+          {/* <input className="input2" placeholder="Enter State Name" value={formForAdding.state_name} name="state_name" onChange={formValidateForAdd} />
+          <input className="input3" placeholder="Enter Status" value={formForAdding.status} name="status" onChange={formValidateForAdd} /> */}
+
+          <div className="input-div">
+            <label> State Name </label>
+            <input className="input2" placeholder="Enter State Name" value={formForAdding.state_name} name="state_name" onChange={formValidateForAdd}  />
+          </div>
+          <div className="input-div">
+            <label> Status </label>
+            <input className="input3" placeholder="Enter Status" value={formForAdding.status} name="status" onChange={formValidateForAdd}  />
+          </div>
+
+
+
           {/* <p className="m-0"> id : {form.id}</p>
               <p className="m-0"> id : {form.state_name}</p>
               <p className="m-0"> id : {form.status}</p> */}
