@@ -94,11 +94,14 @@ export default function StateTable() {
   const adding = () => {
     setVisibleForAdding(true)
   }
-  const add = () => {
+  useEffect(() => {
+    setAddingToApi(formForAdding);
+  } ,[formForAdding])
+  const add = async () => {
     console.log("hi");
     setAddingToApi(formForAdding);
     try {
-      const res = axios.post(API_URL, [addingToApi])
+      const res = await axios.post(API_URL, [addingToApi])
       console.log(res.data);
       loggingInConsole();
       // setFormForAdding([])
@@ -153,15 +156,15 @@ export default function StateTable() {
           onHide={() => { if (!visible) return; setVisible(false); }}>
           <div className="input-div ">
             <label> Id </label>
-            <input className="input1 form-control" value={form.id} name="id" onChange={formValidate} />
+            <input className="input1 form-control" placeholder="Enter id" value={form.id} name="id" onChange={formValidate} />
           </div>
           <div className="input-div">
             <label> State Name </label>
-            <input className="input2" placeholder="Enter " value={form.state_name} name="state_name" onChange={formValidate} />
+            <input className="input2" placeholder="Enter State Name" value={form.state_name} name="state_name" onChange={formValidate} />
           </div>
           <div className="input-div">
             <label> Status </label>
-            <input className="input3" value={form.status} name="status" onChange={formValidate} />
+            <input className="input3" placeholder="Enter Status" value={form.status} name="status" onChange={formValidate} />
           </div>
           {/* <p className="m-0"> id : {form.id}</p>
               <p className="m-0"> id : {form.state_name}</p>
@@ -183,11 +186,11 @@ export default function StateTable() {
 
           <div className="input-div">
             <label> State Name </label>
-            <input className="input2" placeholder="Enter State Name" value={formForAdding.state_name} name="state_name" onChange={formValidateForAdd}  />
+            <input className="input2" placeholder="Enter State Name" value={formForAdding.state_name} name="state_name" onChange={formValidateForAdd} />
           </div>
           <div className="input-div">
             <label> Status </label>
-            <input className="input3" placeholder="Enter Status" value={formForAdding.status} name="status" onChange={formValidateForAdd}  />
+            <input className="input3" placeholder="Enter Status" value={formForAdding.status} name="status" onChange={formValidateForAdd} />
           </div>
 
 
