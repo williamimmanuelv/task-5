@@ -1,0 +1,82 @@
+.card{
+    margin: auto;
+    /* max-width: 700px; */
+    /* max-height: 250px; */
+    height: 60px;
+    width: 800px;
+    /* display: flex; */
+    color: aqua;
+}
+.editing-btn{
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    width: 50px;
+    background-color: rgb(28, 28, 190);
+    color: white;
+    font-weight: bolder;
+}
+.editing-btn:hover{
+    background-color: rgb(80, 80, 254);
+
+}
+.delete-btn{
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    width: 70px;
+    background-color: red;
+    color: white;
+    font-weight: bolder;
+}
+.delete-btn:hover{
+    background-color: rgb(251, 48, 48);
+
+}
+.cardForPop{
+    text-align: center;
+    /* width: 300px; */
+}
+.input1, .input2 , .input3{
+    display: block;
+    margin: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    /* color: aqua; */
+    background-color: rgb(247, 244, 239);
+}
+.pop-update-btn{
+    display: block;
+    margin: auto;
+    /* margin-left: 250px; */
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    width: 75px;
+    background-color: green;
+    color: white;
+    font-weight: bolder;
+}
+.pop-update-btn:hover{
+    background-color: rgb(22, 92, 27);
+}
+
+.adding-btn{
+    display: block;
+    margin: auto;
+    color: black;
+    background-color: rgb(124, 202, 228);
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    width: 100px;
+    font-size: x-large;
+}
+.adding-btn:hover{
+    background-color: lightblue;
+}
