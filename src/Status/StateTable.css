@@ -1,4 +1,4 @@
-.card{
+.card {
     margin: auto;
     /* max-width: 700px; */
     /* max-height: 250px; */
@@ -7,7 +7,8 @@
     /* display: flex; */
     color: aqua;
 }
-.editing-btn{
+
+.editing-btn {
     padding: 10px;
     border: none;
     border-radius: 10px;
@@ -16,11 +17,13 @@
     color: white;
     font-weight: bolder;
 }
-.editing-btn:hover{
+
+.editing-btn:hover {
     background-color: rgb(80, 80, 254);
 
 }
-.delete-btn{
+
+.delete-btn {
     padding: 10px;
     border: none;
     border-radius: 10px;
@@ -29,15 +32,20 @@
     color: white;
     font-weight: bolder;
 }
-.delete-btn:hover{
+
+.delete-btn:hover {
     background-color: rgb(251, 48, 48);
 
 }
-.cardForPop{
+
+.cardForPop {
     text-align: center;
     /* width: 300px; */
 }
-.input1, .input2 , .input3{
+
+.input1,
+.input2,
+.input3 {
     /* display: block; */
     width: 200px;
     flex: 2;
@@ -51,7 +59,8 @@
     /* color: aqua; */
     background-color: rgb(247, 244, 239);
 }
-.pop-update-btn{
+
+.pop-update-btn {
     display: block;
     margin: auto;
     /* margin-left: 250px; */
@@ -63,11 +72,12 @@
     color: white;
     font-weight: bolder;
 }
-.pop-update-btn:hover{
+
+.pop-update-btn:hover {
     background-color: rgb(22, 92, 27);
 }
 
-.adding-btn{
+.adding-btn {
     display: block;
     margin: auto;
     color: white;
@@ -80,17 +90,55 @@
     width: 100px;
     font-size: x-large;
 }
-.adding-btn:hover{
+
+.adding-btn:hover {
     background-color: rgb(1, 1, 206);
 }
 
-.input-div{
+.input-div {
     display: flex;
     gap: 10px;
 }
-.input-div label{
+
+.input-div label {
     width: 200px;
     margin: auto;
     flex: 1;
     text-align: right;
+}
+
+.pop-btn-for-deletion-ok {
+    display: block;
+    margin: auto;
+    border: 2px solid transparent;
+    margin-top: 10px;
+    padding: 10px;
+    width: 100px;
+    border-radius: 5px;
+    font-weight: bolder;
+    font-size: medium;
+    background-color: red;
+}
+
+.pop-btn-for-deletion-ok:hover {
+    border: 2px solid red;
+    box-shadow: 0px 0px 5px 1px red;
+}
+
+.pop-btn-for-deletion-notok {
+    display: block;
+    margin: auto;
+    margin-top: 10px;
+    border: 2px solid transparent;
+    padding: 10px;
+    width: 100px;
+    border-radius: 5px;
+    font-weight: bolder;
+    font-size: medium;
+}
+
+.pop-btn-for-deletion-notok:hover {
+    border: 2px solid green;
+    box-shadow: 0px 0px 5px 1px green;
+
 }

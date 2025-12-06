@@ -224,7 +224,7 @@ export default function StateTable() {
 
       <div className="cardForPop justify-content-center" >
         {/* <Button label="Show" icon="pi pi-external-link" /> */}
-        <Dialog header={"Add Data"} visible={visibleForDelete} style={{ width: '50vw' }}
+        <Dialog header={"Delete Data"} visible={visibleForDelete} style={{ width: '50vw' }}
           onHide={() => { if (!visibleForDelete) return; setVisibleForDelete(false); }}>
           {/* <input className="input1" placeholder="Enter id" value={formForAdding.id} name="id" onChange={formValidateForAdd} /> */}
           {/* <input className="input2" placeholder="Enter State Name" value={formForAdding.state_name} name="state_name" onChange={formValidateForAdd} />
@@ -234,8 +234,8 @@ export default function StateTable() {
           {/* <p className="m-0"> id : {form.id}</p>
               <p className="m-0"> id : {form.state_name}</p>
               <p className="m-0"> id : {form.status}</p> */}
-          <button className="pop-update-btn" onClick={() => Delete(form.id)}> Yes </button>
-          <button className="pop-update-btn" onClick={() => DontDelete()}> NO </button>
+          <button className="pop-btn-for-deletion-ok" onClick={() => Delete(form.id)}> Yes </button>
+          <button className="pop-btn-for-deletion-notok" onClick={() => DontDelete()}> NO </button>
         </Dialog>
       </div>
     </>
