@@ -70,18 +70,18 @@
 .adding-btn{
     display: block;
     margin: auto;
-    color: black;
-    background-color: rgb(124, 202, 228);
+    color: white;
+    background-color: blue;
     padding: 10px;
     border: none;
-    border-radius: 10px;
+    border-radius: 5px;
     margin-top: 5px;
     margin-bottom: 10px;
     width: 100px;
     font-size: x-large;
 }
 .adding-btn:hover{
-    background-color: lightblue;
+    background-color: rgb(1, 1, 206);
 }
 
 .input-div{

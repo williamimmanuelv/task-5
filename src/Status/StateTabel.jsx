@@ -33,18 +33,37 @@ export default function StateTable() {
     setVisible(true)
   }
 
-  const del = async (id) => {
+
+
+  const [visibleForDelete, setVisibleForDelete] = useState(false);
+  const [indexForDeletion, setIndexForDeletion] = useState('');
+
+  const del = async (index) => {
+    setVisibleForDelete(true)
+    const { id } = state[index]
+    setIndexForDeletion(id)
     console.log(id);
 
+  }
+  const DontDelete = () => {
+    setVisibleForDelete(false)
+  }
+  const Delete = async () => {
+    // setVisibleForDelete(true)
+    // const { id } = state[index]
+    console.log(indexForDeletion);
+
     try {
-      const res = await axios.delete(`${API_URL}/${id}`);
+      const res = await axios.delete(`${API_URL}/${indexForDeletion}`);
       console.log("deleted:", res.data);
-      loggingInConsole()
+      loggingInConsole();
+    setVisibleForDelete(false);
       // setStatus("Successfully updated!");
     } catch (e) {
       console.log("Delete Failed: " + e.message);
     }
   }
+
 
   const [formValidated, setFormValidated] = useState([])
   const formValidate = (e) => {
@@ -101,6 +120,7 @@ export default function StateTable() {
   useEffect(() => {
     setAddingToApi(formForAdding);
   }, [formForAdding])
+
   const add = async () => {
     console.log("hi");
     setAddingToApi(formForAdding);
@@ -138,7 +158,6 @@ export default function StateTable() {
   return (
 
     <>
-
       <button className="adding-btn" onClick={adding}> Add </button>
       <div className="card">
         <DataTable value={state} tableStyle={{ minWidth: '50rem' }}>
@@ -148,7 +167,7 @@ export default function StateTable() {
           <Column field="status" header="Status" />
 
           <Column header="Actions" body={forUpdate} />
-          {/* <Column header="Actions" body={forDelete} /> */}
+          <Column header="Action" body={forDelete} />
 
         </DataTable>
       </div>
@@ -158,10 +177,10 @@ export default function StateTable() {
         {/* <Button label="Show" icon="pi pi-external-link" /> */}
         <Dialog header={"Edit Form"} visible={visible} style={{ width: '50vw' }}
           onHide={() => { if (!visible) return; setVisible(false); }}>
-          <div className="input-div ">
+          {/* <div className="input-div ">
             <label> Id </label>
             <input className="input1 form-control" placeholder="Enter id" value={form.id} name="id" onChange={formValidate} />
-          </div>
+          </div> */}
           <div className="input-div">
             <label> State Name </label>
             <input className="input2" placeholder="Enter State Name" value={form.state_name} name="state_name" onChange={formValidate} />
@@ -196,13 +215,27 @@ export default function StateTable() {
             <label> Status </label>
             <input className="input3" placeholder="Enter Status" value={formForAdding.status} name="status" onChange={formValidateForAdd} />
           </div>
+          {/* <p className="m-0"> id : {form.id}</p>
+              <p className="m-0"> id : {form.state_name}</p>
+              <p className="m-0"> id : {form.status}</p> */}
+          <button className="pop-update-btn" onClick={() => add()}> Add </button>
+        </Dialog>
+      </div>
 
+      <div className="cardForPop justify-content-center" >
+        {/* <Button label="Show" icon="pi pi-external-link" /> */}
+        <Dialog header={"Add Data"} visible={visibleForDelete} style={{ width: '50vw' }}
+          onHide={() => { if (!visibleForDelete) return; setVisibleForDelete(false); }}>
+          {/* <input className="input1" placeholder="Enter id" value={formForAdding.id} name="id" onChange={formValidateForAdd} /> */}
+          {/* <input className="input2" placeholder="Enter State Name" value={formForAdding.state_name} name="state_name" onChange={formValidateForAdd} />
+          <input className="input3" placeholder="Enter Status" value={formForAdding.status} name="status" onChange={formValidateForAdd} /> */}
 
 
           {/* <p className="m-0"> id : {form.id}</p>
               <p className="m-0"> id : {form.state_name}</p>
               <p className="m-0"> id : {form.status}</p> */}
-          <button className="pop-update-btn" onClick={() => add()}> Add </button>
+          <button className="pop-update-btn" onClick={() => Delete(form.id)}> Yes </button>
+          <button className="pop-update-btn" onClick={() => DontDelete()}> NO </button>
         </Dialog>
       </div>
     </>
